@@ -2839,8 +2839,7 @@ class GLTFParser {
 			return this.textureCache[ cacheKey ];
 
 		}
-		const URL = Window.URL || Window.webkitURL;
-
+		const URL = window.URL;
 		let sourceURI = source.uri || '';
 		let isObjectURL = false;
 
