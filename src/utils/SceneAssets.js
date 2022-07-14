@@ -375,7 +375,7 @@ class SceneAssets extends _SceneAssets{
 
             let _ship = new THREE.Group();
             _ship = gltf.scene;
-
+            console.log( gltf );
             let _bulkhead_mat = new THREE.MeshStandardMaterial( { color: 0x777777, roughness: 1, metalness: 1, side: THREE.DoubleSide } );
             let _bulkhead = _ship.getObjectByName( 'Bulkhead' );
             _bulkhead.castShadow = true;
@@ -557,6 +557,7 @@ class SceneAssets extends _SceneAssets{
         return await loading.then(( ship )=>{
 
           delete this.Ship;
+          console.log( ship );
           return this.Ship = ship;
 
         })
