@@ -368,6 +368,7 @@ class SceneAssets extends _SceneAssets{
 
     // Ship
     get Ship(){
+
       let loading = new Promise((resolve, reject)=>{
         const loader = new GLTFLoader().setPath( 'models/' );
         loader.load( 'bridge.glb',
@@ -375,6 +376,7 @@ class SceneAssets extends _SceneAssets{
 
             let _ship = new THREE.Group();
             _ship = gltf.scene;
+            console.log( 'gltf' );
             console.log( gltf );
             let _bulkhead_mat = new THREE.MeshStandardMaterial( { color: 0x777777, roughness: 1, metalness: 1, side: THREE.DoubleSide } );
             let _bulkhead = _ship.getObjectByName( 'Bulkhead' );
@@ -557,6 +559,7 @@ class SceneAssets extends _SceneAssets{
         return await loading.then(( ship )=>{
 
           delete this.Ship;
+          console.log( 'ship');
           console.log( ship );
           return this.Ship = ship;
 
@@ -922,10 +925,7 @@ class SceneAssets extends _SceneAssets{
     // Camera & Controls Setup
     this.active_cam = new THREE.PerspectiveCamera( VIEW.fov, VIEW.aspect, VIEW.near, VIEW.far );
     this.active_cam.name = 'CaptainCam';
-    //this.controls.orbit_controls = new OrbitControls( this.active_cam, this.renderer.domElement );
-    this.actors.Ship.then(( ship )=>{
-      this.cameras = ship.cameras;
-    });
+
 
 
   }
