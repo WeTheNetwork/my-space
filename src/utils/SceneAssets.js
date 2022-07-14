@@ -370,7 +370,9 @@ class SceneAssets extends _SceneAssets{
     get Ship(){
 
       let loading = new Promise((resolve, reject)=>{
-        const loader = new GLTFLoader().setPath( 'models/' );
+        const loader = new GLTFLoader().setPath( './models/' );
+        console.log( ' loader ');
+        console.log( loader );
         loader.load( 'bridge.glb',
           async ( gltf )=>{
 
@@ -555,19 +557,19 @@ class SceneAssets extends _SceneAssets{
 
 
       return (async () => {
-      try {
-        return await loading.then(( ship )=>{
+        try {
+          return await loading.then(( ship )=>{
 
-          delete this.Ship;
-          console.log( 'ship');
-          console.log( ship );
-          return this.Ship = ship;
+            delete this.Ship;
+            console.log( 'ship');
+            console.log( ship );
+            return this.Ship = ship;
 
-        })
-      } catch(e) {
-        return 0; // fallback value;
-      }
-    })();
+          })
+        } catch(e) {
+          return 0; // fallback value;
+        }
+      })();
     }
 
   }
