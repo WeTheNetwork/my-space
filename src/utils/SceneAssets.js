@@ -371,12 +371,8 @@ class SceneAssets extends _SceneAssets{
 
       let loading = new Promise( ( resolve, reject )=>{
         const loader = new GLTFLoader();
-        console.log( ' loader ');
-        console.log( loader );
         loader.load( 'models/bridge.glb',
           async ( gltf )=>{
-            console.log( 'gltf' );
-            console.log( gltf );
 
             let _ship = new THREE.Group();
             _ship = gltf.scene;
@@ -561,8 +557,6 @@ class SceneAssets extends _SceneAssets{
           return await loading.then(( ship )=>{
 
             delete this.Ship;
-            console.log( 'ship');
-            console.log( ship );
             return this.Ship = ship;
 
           })

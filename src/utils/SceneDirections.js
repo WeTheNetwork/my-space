@@ -13,11 +13,8 @@ class SceneDirections extends _SceneDirections {
     scene.add( scene_assets.lights.point_light );
     scene.add( scene_assets.lights.ambient_light );
 
-    console.log( 'SceneDirections' );
     let ship = await scene_assets.actors.Ship;
     scene_assets.cameras = ship.cameras;
-    console.log( 'SceneDirections: ship' );
-    console.log( ship );
     ship.position.addVectors( scene_assets.actors.Earth.position, scene_assets.actors.Earth.orbital_vector );
     ship.lookAt( scene_assets.actors.Earth.position );
 

@@ -187,7 +187,6 @@ class GLTFLoader extends Loader {
 		loader.load( url, function ( data ) {
 
 			try {
-				debugger;
 
 				scope.parse( data, resourcePath, function ( gltf ) {
 
