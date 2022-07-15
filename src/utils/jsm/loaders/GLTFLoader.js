@@ -138,7 +138,6 @@ class GLTFLoader extends Loader {
 	}
 
 	load( url, onLoad, onProgress, onError ) {
-
 		const scope = this;
 
 		let resourcePath;
@@ -185,10 +184,10 @@ class GLTFLoader extends Loader {
 		loader.setResponseType( 'arraybuffer' );
 		loader.setRequestHeader( this.requestHeader );
 		loader.setWithCredentials( this.withCredentials );
-
 		loader.load( url, function ( data ) {
 
 			try {
+				debugger;
 
 				scope.parse( data, resourcePath, function ( gltf ) {
 

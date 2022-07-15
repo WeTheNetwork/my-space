@@ -370,10 +370,10 @@ class SceneAssets extends _SceneAssets{
     get Ship(){
 
       let loading = new Promise( ( resolve, reject )=>{
-        const loader = new GLTFLoader().setPath( './models/' );
+        const loader = new GLTFLoader();
         console.log( ' loader ');
         console.log( loader );
-        loader.load( 'bridge.glb',
+        loader.load( 'models/bridge.glb',
           async ( gltf )=>{
             console.log( 'gltf' );
             console.log( gltf );
