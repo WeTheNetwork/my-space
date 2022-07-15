@@ -3,6 +3,8 @@
 Running this app is the same as the bootstrapped React App.  Follow the directions below to have a solar system to build from in your browser.
 This will always be a working project for this functionality, so please take it from wherever you find it to where you want it to go!
 
+The live version is located at [https://paleblue.phox.solutions/](https://paleblue.phox.solutions/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
