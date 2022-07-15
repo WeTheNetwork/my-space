@@ -370,7 +370,7 @@ class SceneAssets extends _SceneAssets{
     get Ship(){
 
       let loading = new Promise( ( resolve, reject )=>{
-        const loader = new GLTFLoader().setPath( './models/' );
+        const loader = new GLTFLoader().setPath( './public/models/' );
         console.log( ' loader ');
         console.log( loader );
         loader.load( 'bridge.glb',
@@ -549,7 +549,6 @@ class SceneAssets extends _SceneAssets{
             //console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
           },
           async ( err )=>{
-            console.log( 'oops, err.');
             console.error( err );
             reject( err );
           }
