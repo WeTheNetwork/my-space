@@ -369,17 +369,17 @@ class SceneAssets extends _SceneAssets{
     // Ship
     get Ship(){
 
-      let loading = new Promise((resolve, reject)=>{
+      let loading = new Promise( ( resolve, reject )=>{
         const loader = new GLTFLoader().setPath( './models/' );
         console.log( ' loader ');
         console.log( loader );
         loader.load( 'bridge.glb',
           async ( gltf )=>{
+            console.log( 'gltf' );
+            console.log( gltf );
 
             let _ship = new THREE.Group();
             _ship = gltf.scene;
-            console.log( 'gltf' );
-            console.log( gltf );
             let _bulkhead_mat = new THREE.MeshStandardMaterial( { color: 0x777777, roughness: 1, metalness: 1, side: THREE.DoubleSide } );
             let _bulkhead = _ship.getObjectByName( 'Bulkhead' );
             _bulkhead.castShadow = true;
@@ -549,6 +549,7 @@ class SceneAssets extends _SceneAssets{
             //console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
           },
           async ( err )=>{
+            console.log( 'oops, err.');
             console.error( err );
             reject( err );
           }
