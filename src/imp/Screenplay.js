@@ -860,11 +860,11 @@ class Screenplay extends _Screenplay{
       this.active_cam.name = cam_name;
     }
   };
-  SetSceneBackground = ( )=>{
+  SetSceneBackground = async ( )=>{
 
     const loader = new THREE.CubeTextureLoader();
 				loader.setPath( 'textures/environment/' );
-				let textureCube = loader.load( [ 'corona_lf.png', 'corona_rt.png', 'corona_up_2.png', 'corona_dn_2.png', 'corona_ft.png', 'corona_bk.png'   ] );
+				let textureCube = await loader.load( [ 'corona_lf.png', 'corona_rt.png', 'corona_up_2.png', 'corona_dn_2.png', 'corona_ft.png', 'corona_bk.png'   ] );
 				this.scene.background = textureCube;
   };
 

@@ -11,62 +11,14 @@ class Manifesto extends _Manifesto{
         on_idle: scene_directions.idle_on_splash,
         on_progress: scene_directions.progress_splash,
         on_failure: scene_directions.splash_failure,
-        on_end: [ scene_directions.end_splash, scene_directions.overlay_icons, scene_directions.ready_for_neptune ]
+        on_end: scene_directions.end_splash
       }, true, false );
-    this.Neptune = new Dictum( workflow.introduction,
+    this.Ready = new Dictum( [ workflow.introduction, workflow.user_introduction ],
       {
-        on_enter: scene_directions.bezier_path_to_neptune,
-        on_idle: scene_directions.spin_in_place,
-        on_progress: scene_directions.progress_neptune,
-        on_failure: scene_directions.neptune_failure,
-        on_end: scene_directions.ready_for_uranus
-      }, true, false );
-    this.Uranus = new Dictum( workflow.user_introduction,
-      {
-        on_enter: scene_directions.bezier_path_to_uranus,
-        on_idle: scene_directions.spin_in_place,
-        on_progress: scene_directions.progress_uranus,
-        on_failure: scene_directions.uranus_failure,
-        on_end: scene_directions.ready_for_saturn
-      }, true, false );
-    this.Saturn = new Dictum( workflow.orbit_controls_demo,
-      {
-        on_enter: scene_directions.bezier_path_to_saturn,
-        on_idle: scene_directions.spin_with_orbit_ctrls,
-        on_progress: scene_directions.progress_saturn,
-        on_failure: scene_directions.saturn_failure,
-        on_end: scene_directions.ready_for_jupiter
-      }, true, false );
-    this.Jupiter = new Dictum( workflow.wireframe_demo,
-      {
-        on_enter: scene_directions.bezier_path_to_jupiter,
-        on_idle: scene_directions.spin_with_orbit_ctrls,
-        on_progress: scene_directions.progress_jupiter,
-        on_failure: scene_directions.jupiter_failure,
-        on_end: scene_directions.ready_for_mars
-      }, true, false );
-    this.Mars = new Dictum( [ workflow.projects_showcase, workflow.comms_init ],
-      {
-        on_enter: scene_directions.bezier_path_to_mars,
-        on_idle: scene_directions.spin_in_place,
-        on_progress: scene_directions.progress_mars,
-        on_failure: scene_directions.mars_failure,
-        on_end: scene_directions.ready_for_earth
-      }, true, false );
-    this.Earth = new Dictum( [ workflow.profile_display, workflow.ping_me, workflow.offer_contact ],
-      {
-        on_enter: scene_directions.bezier_path_to_earth,
-        on_idle: scene_directions.spin_in_place,
-        on_progress: scene_directions.progress_earth,
-        on_failure: scene_directions.earth_failure,
-        on_end: [ scene_directions.back_into_bridge, scene_directions.ready_for_ship ]
-      }, true, false );
-    this.Ship = new Dictum( workflow.user_interface_demo,
-      {
-        on_enter: scene_directions.overlay_interface,
-        on_idle: scene_directions.bridge_view,
-        on_progress: scene_directions.progress_ship,
-        on_failure: scene_directions.ship_failure,
+        on_enter: scene_directions.enter_ready,
+        on_idle: scene_directions.idle_on_ready,
+        on_progress: scene_directions.progress_ready,
+        on_failure: scene_directions.ready_failure,
         on_end: scene_directions.ready_for_anything
       }, true, false );
   }

@@ -41,15 +41,17 @@ class ScreenDirector extends EventEmitter {
   // start_now: Whether to begin immediately once the ScreenDirector has been generated, or to wait for the .start() method call.
   constructor( screenplay, manifesto, start_now ){
     super();  // Instantiating the EventEmitter super class gives access to 'this'.
+
+    this.screenplay = screenplay;
+    this.manifesto = manifesto;
+
     // Listen to environmental changes, adjust accordingly.
     window.addEventListener( 'pointerdown', this.onPointerDown );
-    window.addEventListener( 'resize', this.resize, { capture: true } );
+    window.addEventListener( 'resize', this.screenplay.resize, { capture: true } );
 
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
 
-    this.screenplay = screenplay;
-    this.manifesto = manifesto;
 
     // Iterate through the provided dictums, generating event-handing pathways to progress through the manifesto.
     for (const dictum_name in this.manifesto) {
