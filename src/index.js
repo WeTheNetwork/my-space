@@ -1,49 +1,27 @@
-// React Initialization
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { ScreenDirector } from './bin/ScreenDirector.js' ;
+// ScreenDirector Reference
 
-// Development Toolkit
-//import reportWebVitals from './reportWebVitals';
-//import Stats from './utils/jsm/stats.module';
+// ScreenDirector Implementation Library
+import { Screenplay } from  './imp/Screenplay.js' ;
+import { SceneDirections } from  './imp/SceneDirections.js' ;
+import { Manifesto } from  './imp/Manifesto.js' ;
+import { Workflow } from  './imp/Workflow.js' ;
 
-// ScreenDirector Library Reference
-import { Screenplay } from './utils/Screenplay.js';
-import { SceneAssets } from './utils/SceneAssets.js';
-import { SceneDirections } from './utils/SceneDirections.js';
-import { Manifesto } from './utils/Manifesto.js';
-import { Workflow } from './utils/Workflow.js';
+let app = {};
+app.init = ()=>{
 
-import { ScreenDirector } from './utils/ScreenDirector.js';
+  // Scene Director Implementation
+  const screen_play = new Screenplay( );
+  const scene_directions = new SceneDirections();
+  const workflow = new Workflow();
+  const manifesto = new Manifesto( scene_directions, workflow );
 
-// Initialization
-const root = ReactDOM.createRoot(document.getElementById('root'));
-const confirm_start = ( yes ) => {
-  if(yes || window.confirm('start loading?')){
-    scene_director.start();
-  } else {
-    setTimeout(confirm_start, 5000);
-  }
-};
+  const scene_director = new ScreenDirector(screen_play, manifesto, false);
 
-// Scene Direction
-const scene_assets = new SceneAssets();
-const scene_directions = new SceneDirections();
-const screen_play = new Screenplay( scene_assets, scene_directions );
-const workflow = new Workflow();
-const manifesto = new Manifesto( scene_directions, workflow );
+  // Main Logic
+  scene_director.start();
 
-const scene_director = new ScreenDirector(screen_play, manifesto, false);
+}
 
-// Main Logic
-root.render(<React.StrictMode><App /></React.StrictMode>);
-confirm_start( true );
-
-// Development Logic
-//reportWebVitals(console.log);
-/*  If you want to start measuring performance in your app,
-    pass a function to log results (for example: reportWebVitals(console.log))
-    or send to an analytics endpoint.
-
-    Learn more: https://bit.ly/CRA-vitals   */
+// Execute initialization prior to exportation
+app.init();
