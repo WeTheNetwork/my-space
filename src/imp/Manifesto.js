@@ -12,7 +12,7 @@ class Manifesto extends _Manifesto{
         on_progress: scene_directions.progress_splash,
         on_failure: scene_directions.splash_failure,
         on_end: scene_directions.end_splash
-      }, true, false );
+      }, true );
     this.Ready = new Dictum( [ workflow.introduction, workflow.user_introduction ],
       {
         on_enter: scene_directions.enter_ready,
@@ -20,7 +20,7 @@ class Manifesto extends _Manifesto{
         on_progress: scene_directions.progress_ready,
         on_failure: scene_directions.ready_failure,
         on_end: scene_directions.ready_for_anything
-      }, true, false );
+      }, false );
   }
 }
 
